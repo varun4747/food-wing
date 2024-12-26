@@ -1,0 +1,53 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  html, body {
+    height: 110%;
+  }
+  
+  body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url('Wb5.jpg'); /* Add your background image path */
+    background-size: cover; /* Adjust the size as needed */
+    background-repeat: no-repeat;
+    background-color: #f0f0f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f0f0f0; 
+  }
+  
+  .info {
+    width: 350px;
+    padding: 20px;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+  }
+  
+  h1 {
+    text-align:left;
+    padding: 10px;
+  }
+  
+  label {
+    display: block;
+  }
+  
+  input[type="text"],
+  input[type="number"],
+  input[type="password"],
+  input[type="email"],
+  button{
+    width: 100%;
+    padding: 5px;
+    margin-bottom: 10px;
+  }
+  button{
+    background-color: aquamarine;
+    cursor: pointer;
+    border: 0;
+}

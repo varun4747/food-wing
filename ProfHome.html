@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSP Project</title>
+    <link rel="stylesheet" href="CSPWeb.css">
+    <link rel="stylesheet" href="ProfHome.css">
+    <style>
+        .b1 {
+            display: none;
+            align-items: flex-start;
+            justify-content: end;
+            margin-right: 10px;
+        }
+
+        .b {
+            position: fixed;
+            background-color: white;
+            z-index: 10;
+        }
+
+        .b div {
+            padding: 20px;
+            cursor: pointer;
+        }
+
+        .b div:hover {
+            background-color: aqua;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="nav-bar">
+        <div>Logo</div>
+        <div class="nav1">
+            <div onclick="showIframe('home.html')">Home</div>
+            <div onclick="showIframe('Community.html')">Community</div>
+            <p>&#10072;</p>
+            <div class="pro" style="float:left;">
+                <img src="download.png" alt="" onclick="dis();">
+            </div>
+        </div>
+    </div>
+    <div class="b1">
+        <div class="b">
+            <div onclick="showIframe('Profile.html')">Profile</div>
+            <div onclick="showIframe('AddDet.html')">Post</div>
+            <div onclick="showIframe('orders.html')">Your Posts</div>
+            <div onclick="showIframe('logout')">Logout</div>
+        </div>
+    </div>
+
+    <div class="h">
+        <iframe id="hi" src="home.html" frameborder="0" scroll="yes" width="100%" height="600px" scroll="yes"></iframe>
+    </div>
+
+    <footer>
+        <div class="bot">
+            <h2>About&nbsp;Us</h2><br>
+            <p>For&nbsp;any&nbsp;queries&nbsp;Contact&nbsp;us&nbsp;at</p>
+            <p>E-Mail:&nbsp;foodforall149@gmail.com</p>
+        </div>
+    </footer>
+    <script>
+        function showIframe(a) {
+            if (a == 'logout') {
+                parent.location.href = '/logout'
+            }
+            else {
+                document.getElementById('hi').src = a;
+            }
+            if (document.querySelector('.b1').style.display === 'flex') {
+                document.querySelector('.b1').style.display = 'none';
+            }
+        }
+    </script>
+    <script>
+        function dis() {
+            if (document.querySelector('.b1').style.display === 'flex') {
+                document.querySelector('.b1').style.display = 'none';
+            }
+            else {
+                document.querySelector('.b1').style.display = 'flex';
+            }
+        }
+    </script>
+    <script>
+        document.querySelector('.bot').addEventListener('click', (e) => {
+            if (document.querySelector('.b1').style.display === 'flex') {
+                document.querySelector('.b1').style.display = 'none';
+            }
+        });
+    </script>
+
+
+</html>

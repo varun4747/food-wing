@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="Signup.css">
+</head>
+
+<body>
+    <div class="sign">
+        <div>
+            <h1>Sign&nbsp;Up</h1>
+            <label for="mail">Mail-ID</label><br>
+            <input type="email" id="mail" name="mail1" placeholder="Enter Mail Id"><br>
+            <label for="psw">Password</label><br>
+            <input type="password" id="psw" name="psw1" placeholder="Enter Password"><br><br>
+            <label for="rpsw">Confirm&nbsp;Password</label><br>
+            <input type="text" id="rpsw" name="rpsw1" placeholder="Re-enter Password"><br><br>
+            <button onclick="change()">Existing User? Login Here</button>
+            <input type="text" name="otp" id="otp" placeholder="Enter OTP">
+            <button id="subm">Send OTP</button>
+        </div>
+    </div>
+    <script>
+        document.querySelector('#subm').addEventListener('click', (eve) => {
+            x = document.querySelector('#mail').value;
+            y = document.querySelector('#psw').value;
+            z = document.querySelector('#rpsw').value;
+            p = document.querySelector('#otp').value;
+            if (x === '') {
+                alert('Enter Username');
+            }
+            else if (y === '') {
+                alert('Enter the Password');
+            }
+            else if (z === '') {
+                alert('Re-Enter Password');
+            }
+            else if (y!= z) {
+                alert('Password and Confirm Password are different\nPlease Check')
+            }
+            else {
+                if (document.querySelector('#subm').innerHTML === 'Send OTP') {
+                    fetch('/otp/'+x)
+                    .then(res=>res.json())
+                    .then(data=>{
+                        if(data.success){
+                            document.querySelector('#otp').style.display = 'block';
+                            document.querySelector('#subm').innerHTML = 'Verify';
+                            alert('OTP Sent Successfully')
+                        }
+                        else{
+                            alert(data.message)
+                        }
+                    })
+                }
+                else {
+                    if (p === '') {
+                        alert('Enter the OTP')
+                    }
+                    else {
+                        fetch('/verify/' + x + '/' + p+ '/' + y)
+                            .then(res => res.json())
+                            .then(data => {
+                                if (data.success) {
+                                    alert('signup successful');
+                                    parent.location.href = '/form'
+                                }
+                                else {
+                                    alert(data.message)
+                                }
+                            })
+                    }
+                }
+            }
+        });
+    </script>
+    <script>
+        function change() {
+            document.location.href = 'login.html'
+        }
+    </script>
+</body>
+
+</html>

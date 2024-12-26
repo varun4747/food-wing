@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Info</title>
+    <link rel="stylesheet" href="AddDet.css">
+</head>
+
+<body>
+    <div class="ji">
+        <div class="addat">
+            <h3 style="text-align: center;">Add Details</h3>
+            <label for="title">Title</label>
+            <input type="text" id="title" placeholder="About Description in 30 characters">
+            <label for="qun">Quantity</label>
+            <input type="number" id="qun" name="qun1" placeholder="No of People Can have">
+            <label for="time">Time</label>
+            <input type="time" id="time" placeholder="Time To collect Food">
+            <button id="sav">Confirm</button>
+        </div>
+    </div>
+</body>
+<script>
+    document.querySelector('#sav').addEventListener('click', (e) => {
+        var q = document.querySelector('#qun').value;
+        var t = document.querySelector('#time').value;
+        var title = document.querySelector('#title').value;
+        if (title === '' || q === '' || t === '') {
+            alert('Enter all the details')
+        }
+        if (title.length >= 30) {
+            alert('Enter the title in less than 30 characters')
+        }
+        else {
+            fetch('/savec/' + q + '/' + t + '/' + title)
+                .then(res => res.json())
+                .then(data => {
+                    if (data.success) {
+                        alert('posted successfully')
+                        window.location.href = 'Community.html'
+                    }
+                    else {
+                        alert('Please try again')
+                    }
+                })
+        }
+    });
+</script>
+<script>
+    document.body.addEventListener('click', (e) => {
+        if (parent.document.querySelector('.b1').style.display === 'flex') {
+            parent.document.querySelector('.b1').style.display = 'none';
+        }
+    });
+</script>
+
+</html>

@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Serve</title>
+    <link rel="stylesheet" href="Community.css">
+    <style>
+        /* Your existing styles for overlay */
+        .j {
+            display: none;
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            justify-content: center;
+            align-items: center;
+            z-index: 10;
+        }
+    
+        .j1 {
+            background-color: white; /* Set the background color to white or the desired color */
+            width: 300px;
+            max-width: 80%; /* Adjust the maximum width as needed */
+            height: auto; /* Let the height adjust based on content */
+            padding: 20px; /* Add padding for spacing */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Add a shadow for the dialog box */
+            position: relative;
+        }
+    
+        /* Close button styles */
+        .close-button {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            cursor: pointer;
+            background: transparent;
+            border: 0;
+        }
+    
+        .box a:hover {
+            cursor: pointer;
+        }
+    </style>
+    
+</head>
+
+<body>
+    <div class="cm1">
+        <h4 id="hi">Food Availability</h4>
+        <div class="box">
+        </div>
+    </div>
+    <div class="j">
+        <div class="j1">
+            <button class="close-button" onclick="closeJ();">X</button>
+            <h2 style="text-align: center;">Details</h2>
+            <p>
+                <label>Number:</label>
+                <span id="number">Your Number</span>
+            </p>
+            <p>
+                <label>Quantity:</label>
+                <span id="quantity">Your Number</span>
+            </p>
+            <p>
+                <label>Name:</label>
+                <span id="name">Your Name</span>
+            </p>
+            <p>
+                <label>Address:</label>
+                <span id="address">Your Address</span>
+            </p>
+            <p>
+                <label>District:</label>
+                <span id="district">Your District</span>
+            </p>
+            <p>
+                <label>State:</label>
+                <span id="state">Your State</span>
+            </p>
+            <p>
+                <label>Pincode:</label>
+                <span id="pincode">Your Pincode</span>
+            </p>
+        </div>
+    </div>
+    <script>
+        function closeJ(id) {
+            var jDiv = document.querySelector('.j');
+            jDiv.style.display = (jDiv.style.display === 'none') ? 'flex' : 'none';
+            if (jDiv.style.display === 'flex') {
+                fetch('/yu/' + id)
+                    .then(res => res.json())
+                    .then(data => {
+                        if (data.success) {
+                            document.querySelector('#number').innerHTML = data.user.phno;
+                            document.querySelector('#name').innerHTML = data.user.name;
+                            document.querySelector('#address').innerHTML = data.user.address;
+                            document.querySelector('#district').innerHTML = data.user.district;
+                            document.querySelector('#state').innerHTML = data.user.state;
+                            document.querySelector('#pincode').innerHTML = data.user.pincode;
+                            document.querySelector('#quantity').innerHTML = data.z;
+                        } else {
+                            alert('Not able to fetch details');
+                        }
+                    });
+            }
+        }
+    </script>
+    <script>
+        fetch('/c')
+            .then(res => res.json())
+            .then(data => {
+                if (data.success) {
+                    var b = document.querySelector('.box');
+                    if (data.orders.length === 0) {
+                        document.querySelector('#hi').innerHTML = 'No posts Available';
+                    } else {
+                        for (var i = 0; i < data.orders.length; i++) {
+                            console.log(data.orders[i].id);
+                            var d = document.createElement('div');
+                            d.className = 'im box1';
+                            var p = document.createElement('p');
+                            p.innerHTML = data.orders[i].title;
+                            var a = document.createElement('a');
+                            a.innerHTML = 'Accept it';
+                            a.addEventListener('click', (function (id) {
+                                return function () {
+                                    closeJ(id);
+                                };
+                            })(data.orders[i].id));
+                            d.appendChild(p);
+                            d.appendChild(a);
+                            b.appendChild(d);
+                        }
+                    }
+                } else {
+                    alert('Failed to fetch the details');
+                }
+            });
+    </script>
+    <script>
+        document.body.addEventListener('click', (e) => {
+            if (parent.document.querySelector('.b1').style.display === 'flex') {
+                parent.document.querySelector('.b1').style.display = 'none';
+            }
+        });
+    </script>
+</body>
+
+</html>

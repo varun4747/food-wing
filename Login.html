@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="Login.css">
+</head>
+
+<body>
+    <div class="log">
+        <div>
+            <h1>Login</h1>
+            <label for="usr">Username</label><br>
+            <input type="text" id="usr" name="usr" placeholder="Enter Username or Mail Id"><br>
+            <label for="psw">Password</label><br>
+            <input type="password" id="psw" name="psw" placeholder="Enter Password"><br><br>
+            <button onclick="change()">New User? Register Here</button>
+            <button  id="sub">Login</button>
+        </div>
+    </div>
+    <script>
+        document.querySelector('#sub').addEventListener('click', (eve) => {
+            x = document.querySelector('#usr').value;
+            y = document.querySelector('#psw').value;
+            if (x === '') {
+                alert('Enter Username');
+            }
+            else if (y === '') {
+                alert('Enter the Password');
+            }
+            else {
+                fetch('/login/'+x+'/'+y)
+                .then(res=>res.json())
+                .then(data=>{
+                    if(data.success){
+                        alert('Login Successfull')
+                        parent.location.href='/dashboard'
+                    }
+                    else{
+                        alert('Failed to login')
+                    }
+                });
+            }
+        });
+    </script>
+    <script>
+        function change(){
+         document.location.href='signup.html'
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Serve</title>
+    <link rel="stylesheet" href="Community.css">
+</head>
+
+<body>
+    <div class="cm1">
+        <h4 id="hi">Your&nbsp;orders</h4>
+        <div class="box"></div>
+    </div>
+    <script>
+        fetch('/c')
+            .then(res => res.json())
+            .then(data => {
+                if (data.success) {
+                    for (let i = 0; i < data.orders.length; i++) {
+                        var b = document.querySelector('.box');
+                        var d = document.createElement('div');
+                        d.className = 'im box1';
+                        var p = document.createElement('p');
+                        p.innerHTML = data.orders[i].title;
+                        var a = document.createElement('a');
+                        a.href = '#';
+                        a.innerHTML = 'Remove it';
+                        a.addEventListener('click', (function (index) {
+                            return function () {
+                                removeOrder(data.orders[index].id);
+                            };
+                        })(i));
+                        d.appendChild(p);
+                        d.appendChild(a);
+                        b.appendChild(d);
+                    }
+                    if(data.orders.length===0){
+                        document.querySelector('#hi').innerHTML='No posts Available'
+                    }
+                } else {
+                    alert('Failed to fetch the details');
+                }
+            });
+
+        function removeOrder(title) {
+            fetch('/r/' + title, {
+                method: 'GET'
+            })
+                .then(res => res.json())
+                .then(data => {
+                    if (data.success) {
+                        alert('Order removed successfully');
+                        window.location.reload();
+                    } else {
+                        alert('Failed to remove');
+                    }
+                });
+        }
+    </script>
+</body>
+<script>
+    document.body.addEventListener('click', (e) => {
+        if (parent.document.querySelector('.b1').style.display === 'flex') {
+            parent.document.querySelector('.b1').style.display = 'none';
+        }
+    });
+</script>
+</html>

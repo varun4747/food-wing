@@ -1,0 +1,76 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif; /* Choose a suitable font */
+}
+
+body {
+        background-image: url('Wb2.jpg');
+        background-size: cover; /* Adjust the size as needed */
+        background-repeat: no-repeat;
+    
+}
+
+.p1 {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.prof {
+    background-color: #fff; /* Set a white background for the profile container */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    max-width: 400px;
+    margin: 0 auto; /* Center the profile container horizontally */
+}
+
+label {
+    font-weight: bold; /* Emphasize labels */
+    display: inline-block; /* Display labels and inputs side by side */
+    text-align: left; /* Align labels to the left */
+    width: 40%; /* Set the width of labels */
+    margin-right: 10px; /* Add some space between labels and inputs */
+}
+
+/* Create a two-column layout for input fields */
+.input-container {
+    display: flex;
+}
+
+input[type="text"],
+input[type="number"],
+select {
+    width: 50%; /* Make the input fields take up half of the container width */
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button#sav {
+    background-color: #333; /* Change button color */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    display: block; /* Place the button on a new line */
+    margin-top: 10px; /* Add some space between the button and inputs */
+}
+
+button#sav:hover {
+    background-color: #555; /* Darken button color on hover */
+}
+#h8{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}

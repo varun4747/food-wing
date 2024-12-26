@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="CSPWeb.css">
+</head>
+
+<body>
+    <div class="hm" id="home-content">
+        <div class="hm1">
+            <marquee behavior="" direction="">
+                <h3>Welcome&nbsp;to&nbsp;CSP&nbsp;Project</h3>
+            </marquee>
+        </div>
+        <div class="hm2">
+            <div>
+                <video controls loop src="Stop_Food_Wastage.mp4"></video>
+            </div>
+            <div class="hm2_1">
+                <h2>Join&nbsp;Our&nbsp;Mission&nbsp;to&nbsp;End&nbsp;Hunger&nbsp;and&nbsp;Feed&nbsp;the&nbsp;Hungry
+                </h2>
+                <p>In a world plagued by hunger and food waste, we have a singular mission: to unite compassionate
+                    individuals like you in nourishing those in need. Lives are lost to hunger daily, while edible
+                    food
+                    goes to waste. Our goal is clear: bridge the gap by rescuing excess food and feeding the
+                    hungry.<br>
+                    <br>We firmly believe that no one should endure the pangs of hunger when an abundance of food
+                    remains accessible. Together, we wield the power to enact change. We invite you to stand with us
+                    in
+                    our mission to deliver hope and sustenance to those who require it most. With your invaluable
+                    support, we can fashion a world where the specter of hunger recedes into history.
+                </p>
+            </div>
+        </div>
+        <div class="hm3">
+            <h4>Food&nbsp;Wastage</h4>
+            <div class="box">
+                <div class="im box1">
+                    <img src="Save-food.jpg" alt="">
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus, labore!</p>
+                    <a href="" target="_blank">Read&nbsp;More</a>
+                </div>
+                <div class="im box1">
+                    <img src="Save-food.jpg" alt="">
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus, labore!</p>
+                    <a href="" target="_blank">Read&nbsp;More</a>
+                </div>
+                <div class="im box1">
+                    <img src="Save-food.jpg" alt="">
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus, labore!</p>
+                    <a href="" target="_blank">Read&nbsp;More</a>
+                </div>
+                <div class="im box1">
+                    <img src="Save-food.jpg" alt="">
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus, labore!</p>
+                    <a href="" target="_blank">Read&nbsp;More</a>
+                </div>
+                <div class="im box1">
+                    <img src="Save-food.jpg" alt="">
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus, labore!</p>
+                    <a href="" target="_blank">Read&nbsp;More</a>
+                </div>
+            </div>
+
+        </div>
+        <div class="hm3">
+            <h4>Hunger&nbsp;Deaths</h4>
+            <div class="box">
+                <div class="im box2">
+                    <img src="Save-food.jpg" alt="">
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus, labore!</p>
+                    <a href="" target="_blank">Read&nbsp;More</a>
+                </div>
+                <div class="im box2">
+                    <img src="Save-food.jpg" alt="">
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus, labore!</p>
+                    <a href="" target="_blank">Read&nbsp;More</a>
+                </div>
+                <div class="im box2">
+                    <img src="Save-food.jpg" alt="">
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus, labore!</p>
+                    <a href="" target="_blank">Read&nbsp;More</a>
+                </div>
+                <div class="im box2">
+                    <img src="Save-food.jpg" alt="">
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus, labore!</p>
+                    <a href="" target="_blank">Read&nbsp;More</a>
+                </div>
+                <div class="im box2">
+                    <img src="Save-food.jpg" alt="">
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus, labore!</p>
+                    <a href="" target="_blank">Read&nbsp;More</a>
+                </div>
+            </div>
+        </div>
+        <div class="hm3">
+            <h4>Food&nbsp;Shortage</h4>
+            <div class="box">
+                <div class="im box3">
+                    <img src="Save-food.jpg" alt="">
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus, labore!</p>
+                    <a href="" target="_blank">Read&nbsp;More</a>
+                </div>
+                <div class="im box3">
+                    <img src="Save-food.jpg" alt="">
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus, labore!</p>
+                    <a href="" target="_blank">Read&nbsp;More</a>
+                </div>
+                <div class="im box3">
+                    <img src="Save-food.jpg" alt="">
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus, labore!</p>
+                    <a href="" target="_blank">Read&nbsp;More</a>
+                </div>
+                <div class="im box3">
+                    <img src="Save-food.jpg" alt="">
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus, labore!</p>
+                    <a href="" target="_blank">Read&nbsp;More</a>
+                </div>
+                <div class="im box3">
+                    <img src="Save-food.jpg" alt="">
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus, labore!</p>
+                    <a href="" target="_blank">Read&nbsp;More</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    function getRandomSample(array, n) {
+        const shuffledArray = array.slice(); // Create a copy of the array to avoid modifying the original
+        for (let i = shuffledArray.length - 1; i > 0; i--) {
+            // Shuffle the array using the Fisher-Yates algorithm
+            const j = Math.floor(Math.random() * (i + 1));
+            [shuffledArray[i], shuffledArray[j]] = [shuffledArray[j], shuffledArray[i]];
+        }
+        return shuffledArray.slice(0, n); // Return the first n elements as the random sample
+    }
+
+    fetch('https://api.worldnewsapi.com/search-news?api-key=4820b77803c54fc6b9938a3a30366b18&text=food%20wastage')
+        .then(res => res.json())
+        .then(data => {
+            x = getRandomSample(data.news, 5);
+            console.log(x);
+            for (i = 0; i < 5; i++) {
+                if (x[i].image === '' || x[i].image === null) { document.querySelectorAll('.box1')[i].children[0].src = 'Save-food.jpeg' }
+                document.querySelectorAll('.box1')[i].children[0].src = x[i].image;
+                document.querySelectorAll('.box1')[i].children[1].innerHTML = x[i].title;
+                document.querySelectorAll('.box1')[i].children[2].href = x[i].url;
+            }
+        })
+    fetch('https://api.worldnewsapi.com/search-news?api-key=4820b77803c54fc6b9938a3a30366b18&text=hunger%20deaths')
+        .then(res => res.json())
+        .then(data => {
+            x = getRandomSample(data.news, 5);
+            for (i = 0; i < 5; i++) {
+                document.querySelectorAll('.box2')[i].children[0].src = x[i].image;
+                document.querySelectorAll('.box2')[i].children[1].innerHTML = x[i].title;
+                document.querySelectorAll('.box2')[i].children[2].href = x[i].url;
+            }
+        })
+    fetch('https://api.worldnewsapi.com/search-news?api-key=4820b77803c54fc6b9938a3a30366b18&text=food%20shortage')
+        .then(res => res.json())
+        .then(data => {
+            x = getRandomSample(data.news, 5);
+            for (i = 0; i < 5; i++) {
+                document.querySelectorAll('.box3')[i].children[0].src = x[i].image;
+                document.querySelectorAll('.box3')[i].children[1].innerHTML = x[i].title;
+                document.querySelectorAll('.box3')[i].children[2].href = x[i].url;
+            }
+        })
+
+</script>
+
+</html><script>
+    document.querySelector('.hm').addEventListener('click', (e) => {
+        if (parent.document.querySelector('.b1').style.display === 'flex') {
+            parent.document.querySelector('.b1').style.display = 'none';
+        }
+    });
+</script>

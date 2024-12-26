@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
+    <link rel="stylesheet" href="Profile.css">
+    <style>
+        .p1 {
+            height: 600px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="p1">
+        <div class="prof">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="nme1" placeholder="Name">
+            <label for="age">Age</label>
+            <input type="number" id="age" name="age1" placeholder="Age">
+            <label for="gender">Gender</label>
+            <select name="gender" id="gender">
+                <option value="Select">Select</option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+            </select>
+            <label for="number">Phone&nbsp;Number</label>
+            <input type="number" id="number" name="cnt1" placeholder="Phone">
+            <label for="address">Address</label>
+            <input type="text" id="address" name="add1" placeholder="Address">
+            <label for="district">District</label>
+            <input type="text" id="district" name="dist1" placeholder="District"><br>
+            <label for="state">State</label>
+            <input type="text" id="state" name="sta1" placeholder="State">
+            <label for="pin">Pin&nbsp;Code</label>
+            <input type="number" id="pin" name="zpc1" placeholder="Enter Pin Code"><br>
+            <div id="h8">
+                <button id="sav">Save</button>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    document.querySelector('#sav').addEventListener('click', (e) => {
+        var name = document.querySelector('#name').value;
+        var age = document.querySelector('#age').value;
+        var gender = document.querySelector('#gender').value;
+        var address = document.querySelector('#address').value;
+        var district = document.querySelector('#district').value;
+        var state = document.querySelector('#state').value;
+        var pin = document.querySelector('#pin').value;
+        var number = document.querySelector('#number').value;
+        if (name === '' || age === '' || gender === '' || address === '' || district === '' || state === '' || pin === '' || number == '') {
+            alert('Enter all the details')
+        }
+        else {
+            var x = {
+                name: name,
+                address: address,
+                gender: gender,
+                age: Number(age),
+                district: district,
+                state: state,
+                pincode: Number(pin),
+                phno: Number(number),
+                form: 1
+            }
+            var data = JSON.stringify(x);
+            fetch('/save/' + encodeURIComponent(data))
+                .then(res => res.json())
+                .then(data => {
+                    if (data.success) {
+                        alert('Data Saved Successfully')
+                    }
+                    else {
+                        alert('Failed to save the details')
+                    }
+                })
+        }
+    });
+</script>
+<script>
+    fetch('/fetch')
+        .then(res => res.json())
+        .then(data => {
+            document.querySelector('#name').value = data.user.name;
+            document.querySelector('#age').value = data.user.age;
+            document.querySelector('#gender').value = data.user.gender;
+            document.querySelector('#address').value = data.user.address;
+            document.querySelector('#district').value = data.user.district;
+            document.querySelector('#state').value = data.user.state;
+            document.querySelector('#pin').value = data.user.pincode;
+            document.querySelector('#number').value = data.user.phno;
+            if (data.success) {
+
+            }
+            else {
+                alert('Failed to fetch details')
+            }
+        });
+</script>
+<script>
+    document.body.addEventListener('click', (e) => {
+        if (parent.document.querySelector('.b1').style.display === 'flex') {
+            parent.document.querySelector('.b1').style.display = 'none';
+        }
+    });
+</script>
+
+</html>

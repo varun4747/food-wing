@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSP Project</title>
+    <link rel="stylesheet" href="CSPWeb.css">
+</head>
+
+<body>
+    <div class="nav-bar">
+        <div>Logo</div>
+        <div class="nav1">
+            <div onclick="showIframe('home.html')" class="nav-item">Home</div>
+            <div onclick="showIframe('community.html')" class="nav-item">Community</div>
+            <div onclick="showIframe('login.html')" class="nav-item">Login</div>
+            <div onclick="showIframe('signup.html')" class="nav-item">Sign Up</div>
+        </div>
+    </div>
+    <div>
+        <iframe id="hi" src="home.html" frameborder="0" scroll="yes" width="100%" height="600px"></iframe>
+    </div>
+    <script>
+        function showIframe(a) {
+            if (a === 'community.html') {
+                if (document.cookie.sid) {
+                    document.getElementById('hi').src = a;
+                }
+                else {
+                    alert('please login in')
+                    document.getElementById('hi').src='login.html'
+                }
+            }
+            else {
+                document.getElementById('hi').src = a;
+            }
+        }
+    </script>
+</body>
+<footer>
+    <div class="bot">
+        <h2>About&nbsp;Us</h2><br>
+        <p>For&nbsp;any&nbsp;queries&nbsp;Contact&nbsp;us&nbsp;at</p>
+        <p>E-Mail:&nbsp;foodforall149@gmail.com</p>
+    </div>
+</footer>
+
+</html>
